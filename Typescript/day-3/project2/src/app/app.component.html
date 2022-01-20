@@ -1,0 +1,34 @@
+<app-parent></app-parent>
+<table>
+  <tr *ngFor="let user of users">
+    <td>{{user.name}}</td>
+    <td>{{user.age}}</td>
+    <td>{{user.score}}</td>
+  </tr>
+</table>
+
+<table>
+  <ul *ngFor="let user1 of users">
+    <li>{{user1.name}}</li>
+    <li>{{user1.age}}</li>
+    <li>{{user1.score}}</li>
+  </ul>
+</table>
+
+<div [ngSwitch]="selectedCountry">
+  <div *ngSwitchCase="'ind'">
+    <h3>India has been selected</h3>
+  </div>
+  <div *ngSwitchCase="'usa'">
+    <h3>united states of america has been selected</h3>
+  </div>
+  <div *ngSwitchCase="'uk'">
+    <h3>united kingdom has been selected</h3>
+  </div>
+  <div *ngSwitchCase="'uae'">
+    <h3>united Arab Emirates has been selected</h3>
+  </div>
+  <div *ngSwitchDefault>
+    <h3>no country has been selected</h3>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<p>child works!</p>
+
+
+<div>
+    <ng-content select=".head"></ng-content>
+    <table border="1" rules="all" [style.border]="color1">
+
+        <thead>
+            <th>name</th>
+            <th>price</th>
+        </thead>
+
+        <tr *ngFor="let p of product">
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+        </tr>
+    </table>
+    <ng-content select=".footer"></ng-content>
+</div>

@@ -1,0 +1,63 @@
+<p>registration section</p>
+<div class="container">
+  <div class="col-md-6">
+    <form #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+      <div class="form-group">
+        <label for="exampleInputEmail1">First Name</label>
+        <input #fname="ngModel" required minlength="6" maxlength="20" pattern="[a-zA-Z]+$" type="text"
+          class="form-control" name="fname" aria-describedby="emailHelp" ngModel>
+        <span style="color: red;" *ngIf="fname.invalid && fname.touched">Enter a valid Name</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last name</label>
+        <input #lname="ngModel" required minlength="6" maxlength="20" pattern="[a-zA-Z]+$" type="text" name="lname"
+          class="form-control" ngModel>
+        <span style="color: red;" *ngIf="lname.invalid && lname.touched">Enter a valid Name</span>
+      </div>
+      <div class="form-group">
+          <label for="exampleInputPassword1">Gender:</label><br>
+          Male:<input type="radio" value="male" name="g" #g="ngModel" required ngModel> Female:
+          <input type="radio" value="female" name="g" #g="ngModel" required ngModel> <br>
+          <span style="color: red;" *ngIf="g.invalid && g.touched">select gender</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Phone No</label>
+        <input #phone="ngModel" required pattern="^((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}$"
+          type="text" name="phone" class="form-control" ngModel>
+        <span style="color: red;" *ngIf="phone.invalid && phone.touched">Enter a valid Email</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Email</label>
+        <input #email="ngModel" required minlength="6" maxlength="30" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+          type="email" name="email" class="form-control" ngModel>
+        <span style="color: red;" *ngIf="email.invalid && email.touched">Enter a valid Email</span>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input #pass="ngModel" required minlength="6" maxlength="20"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$" type="password" name="pass"
+          class="form-control" ngModel>
+        <span style="color: red;" *ngIf="pass.invalid && pass.touched">Enter a valid Name</span>
+      </div>
+      <div class="form-group">
+        <div ngModelGroup="address">
+          <label for="exampleInputPassword1">City</label>
+          <input #city="ngModel" type="text" name="city" required placeholder="enter the city" class="form-control"
+            ngModel>
+          <span style="color: red;" *ngIf="city.invalid && city.touched">Enter a city Name</span>
+          <br>
+          <label for="exampleInputPassword1">State</label>
+          <input type="text" placeholder="enter the state" required name="state" #state="ngModel" class="form-control"
+            ngModel>
+          <span style="color: red;" *ngIf="state.invalid && state.touched">Enter a valid state Name</span>
+
+          <br>
+        </div>
+      </div>
+
+      <button [disabled]="regForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<br>
+<h3>{{regForm.value|json}}</h3>

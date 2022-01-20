@@ -1,0 +1,19 @@
+<p>user works!</p>
+<h3>users components</h3>
+<div class="container">
+<table class="table">
+<thead class="thead-dark">
+<tr>
+    <th scope="col">name</th>
+    <th scope="col">department</th>
+    <th scope="col">id</th>
+</tr>
+</thead>
+<tr *ngFor="let user of values">
+<td>{{user.name}}</td>
+<td>{{user.department}}</td>
+<td>{{user.id}}</td>
+</tr>
+</table>
+</div>
+

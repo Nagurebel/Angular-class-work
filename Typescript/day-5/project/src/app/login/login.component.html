@@ -1,0 +1,48 @@
+<p>login LogIn</p>
+<div class="container">
+    <div class="col-md-6">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="uemail" class="form-control" aria-describedby="emailHelp"
+                    formControlName="uemail">
+                <span style="color: red;" *ngIf="uemail.invalid && uemail.touched">Enter a valid Email</span>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" formControlName="upass">
+                <span style="color: red;" *ngIf="upass.invalid && upass.touched">Enter a valid password</span>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Age</label>
+                <input type="number" name="uage" class="form-control" formControlName="uage">
+                <span style="color: red;" *ngIf="uage.invalid && uage.touched">Enter a valid Age</span>
+            </div>
+            <div>
+                <label for="exampleInputPassword1">Gender</label><br>
+                <div> Male: <input type="radio" value="male" name="ugender" formControlName="ugender">
+                    Female: <input type="radio" value="female" name="ugender" formControlName="ugender"></div>
+                <span style="color: red;" *ngIf="ugender.invalid && ugender.touched">select the Gender</span>
+
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">state</label>
+                <input type="text" name="ustate" class="form-control"  formControlName="ustate">
+                <span style="color: red;" *ngIf="ustate.invalid && ustate.touched">Enter your state</span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">City</label>
+                <input type="text" name="ucity" class="form-control" formControlName="ucity">
+                <span style="color: red;" *ngIf="ucity.invalid && ucity.touched">Enter a city</span>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Ph.NO</label>
+                <input type="text" required name="uphone" class="form-control" formControlName="uphone">
+                <span style="color: red;" *ngIf="uphone.invalid && uphone.touched">Enter a valid Age</span>
+            </div>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
